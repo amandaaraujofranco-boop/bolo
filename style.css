@@ -1,0 +1,74 @@
+/* Configurações gerais do corpo da página */
+body {
+    background-color: #FFC0CB; /* Rosa */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título Bem-vindo */
+#titulo {
+    color: #FF1493; /* Rosa Choque */
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estrutura da barra de progresso */
+#progress-container {
+    width: 300px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 3px solid #28a745;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #28a745; /* Verde */
+    transition: width 0.1s linear;
+}
+
+/* Botão Jogar */
+#btn-jogar {
+    display: none; /* Escondido por padrão */
+    background-color: #28a745; /* Verde */
+    color: white; /* Escrita branca */
+    border: none;
+    padding: 15px 50px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#btn-jogar:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Estilo do Bolo */
+#bolo {
+    display: none; /* Escondido por padrão */
+    font-size: 100px;
+    animation: aparecerBolo 0.8s ease-out;
+}
+
+/* Animação suave para o bolo aparecer */
+@keyframes aparecerBolo {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
