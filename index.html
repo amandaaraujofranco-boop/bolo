@@ -1,15 +1,31 @@
-<div id="tela-jogo" class="tela hidden">
-    <div class="hud">
-        <span>Confeiteiro: <strong id="exibir-nome"></strong></span>
-        <span>Pontos: <strong id="pontos">0</strong>/10</span>
-    </div>
-    <h2 class="titulo-fase">Fase 1: Colete os Ingredientes!</h2>
-    <div id="campo-batalha">
-        </div>
-</div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo do Bolo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<div id="tela-ranking" class="tela hidden">
-    <h2>Ranking de Confeiteiros</h2>
-    <ul id="lista-ranking"></ul>
-    <button onclick="location.reload()" class="btn-jogar">Jogar Novamente</button>
-</div>
+    <div id="tela-inicial" class="tela">
+        <h1 class="titulo-rosa">Bem-vindo!</h1>
+        
+        <div class="container-barra">
+            <div id="barra-progresso"></div>
+        </div>
+
+        <div id="area-bolo" class="hidden">
+            <div class="bolo-emoji">🎂</div>
+            <button onclick="irParaLogin()" class="btn-jogar">Ir para Login</button>
+        </div>
+    </div>
+
+    <div id="tela-login" class="tela hidden">
+        <h2>Login</h2>
+        <input type="text" placeholder="Nome do Confeiteiro">
+        <button onclick="iniciarFase()">Entrar no Jogo</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
