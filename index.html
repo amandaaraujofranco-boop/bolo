@@ -2,31 +2,34 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cake Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="splash-screen" class="screen">
-        <h1 class="title-pink">BEM VINDO ao Cake Game!</h1>
+        <h1 class="title-pink">BEM VINDO</h1>
         <div class="loader-container">
             <div id="progress-bar"></div>
         </div>
         <div class="cake-container">
-            <img id="big-cake" src="https://cdn-icons-png.flaticon.com/512/3448/3448099.png" alt="Bolo Grande">
+            <img id="big-cake" src="https://cdn-icons-png.flaticon.com/512/3448/3448099.png" alt="Bolo Grande" style="display:none;">
         </div>
     </div>
 
     <div id="login-screen" class="screen hidden">
         <div class="login-box">
-            <h2 class="title-pink">Login do Confeiteiro</h2>
-            <input type="text" id="username" placeholder="Seu nome de confeiteiro" required>
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Seu nome de confeiteiro">
             <button onclick="startGame()">Entrar no Jogo</button>
         </div>
     </div>
 
     <div id="game-screen" class="screen hidden">
-        <div class="bakery-container">
-            <div class="stats">
-                <p>Pontos: <b id="score">
+        <h2>Fase 1: Preparando a Massa</h2>
+        <p>Pontos: <span id="score">0</span></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
