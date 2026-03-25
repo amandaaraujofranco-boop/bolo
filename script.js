@@ -1,68 +1,62 @@
-let pontos = 0;
-let nomeJogador = "";
-const ingredientes = ['🥚', '🥛', '🍓', '🍫', '🥣'];
-
-function iniciarFase() {
-    const inputNome = document.querySelector('#tela-login input');
-    nomeJogador = inputNome.value || "Anônimo";
-    
-    document.getElementById('exibir-nome').innerText = nomeJogador;
-    document.getElementById('tela-login').classList.add('hidden');
-    document.getElementById('tela-jogo').classList.remove('hidden');
-
-    gerarIngrediente();
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6f2; /* Tom de rosa claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
-function gerarIngrediente() {
-    if (pontos >= 10) {
-        finalizarJogo();
-        return;
-    }
-
-    const campo = document.getElementById('campo-batalha');
-    const item = document.createElement('div');
-    
-    item.className = 'ingrediente';
-    item.innerText = ingredientes[Math.floor(Math.random() * ingredientes.length)];
-    
-    // Posição aleatória
-    const x = Math.random() * (window.innerWidth - 50);
-    const y = Math.random() * (window.innerHeight - 200);
-    
-    item.style.left = `${x}px`;
-    item.style.top = `${y}px`;
-
-    item.onclick = function() {
-        pontos++;
-        document.getElementById('pontos').innerText = pontos;
-        this.remove(); // Remove o item clicado
-        gerarIngrediente(); // Gera o próximo
-    };
-
-    campo.appendChild(item);
+.tela {
+    text-align: center;
+    width: 100%;
 }
 
-function finalizarJogo() {
-    alert("Parabéns! Você completou o bolo!");
-    salvarRanking(nomeJogador, pontos);
-    mostrarRanking();
+.titulo-rosa {
+    color: #ff66b2;
+    font-size: 3rem;
+    margin-bottom: 20px;
 }
 
-function salvarRanking(nome, score) {
-    let ranking = JSON.parse(localStorage.getItem('rankingBolo')) || [];
-    ranking.push({ nome, score });
-    // Ordena do maior para o menor
-    ranking.sort((a, b) => b.score - a.score);
-    // Salva apenas os 5 melhores
-    localStorage.setItem('rankingBolo', JSON.stringify(ranking.slice(0, 5)));
+.container-barra {
+    width: 300px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-function mostrarRanking() {
-    document.getElementById('tela-jogo').classList.add('hidden');
-    document.getElementById('tela-ranking').classList.remove('hidden');
-    
-    const lista = document.getElementById('lista-ranking');
-    const dados = JSON.parse(localStorage.getItem('rankingBolo')) || [];
-    
-    lista.innerHTML = dados.map(item => `<li>${item.nome}: ${item.score} pts</li>`).join('');
+#barra-progresso {
+    width: 0%;
+    height: 100%;
+    background-color: #ff66b2;
+    /* Animação de 5 segundos linear */
+    transition: width 5s linear;
+}
+
+.bolo-emoji {
+    font-size: 100px;
+    margin-top: 20px;
+    animation: pulsar 1.5s infinite;
+}
+
+.hidden { display: none; }
+
+.btn-jogar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
