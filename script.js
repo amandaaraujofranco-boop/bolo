@@ -1,39 +1,62 @@
-window.onload = function() {
-    const progressBar = document.getElementById('progress-bar');
-    const bigCake = document.getElementById('big-cake');
-    const splashScreen = document.getElementById('splash-screen');
-    const loginScreen = document.getElementById('login-screen');
-    
-    let width = 0;
-    const duration = 5000; // 5 segundos
-    const intervalTime = 50; // Atualiza a cada 50ms
-    const step = (intervalTime / duration) * 100;
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6f2; /* Tom de rosa claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
 
-    const interval = setInterval(() => {
-        width += step;
-        progressBar.style.width = width + '%';
+.tela {
+    text-align: center;
+    width: 100%;
+}
 
-        if (width >= 100) {
-            clearInterval(interval);
-            // Mostrar o bolo
-            bigCake.style.display = 'block';
-            
-            // Esperar 1.5s com o bolo na tela e ir para o login
-            setTimeout(() => {
-                splashScreen.classList.add('hidden');
-                loginScreen.classList.remove('hidden');
-            }, 1500);
-        }
-    }, intervalTime);
-};
+.titulo-rosa {
+    color: #ff66b2;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
 
-function startGame() {
-    const name = document.getElementById('username').value;
-    if (name.trim() !== "") {
-        document.getElementById('login-screen').classList.add('hidden');
-        document.getElementById('game-screen').classList.remove('hidden');
-        console.log("Iniciando jogo para: " + name);
-    } else {
-        alert("Por favor, digite seu nome!");
-    }
+.container-barra {
+    width: 300px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#barra-progresso {
+    width: 0%;
+    height: 100%;
+    background-color: #ff66b2;
+    /* Animação de 5 segundos linear */
+    transition: width 5s linear;
+}
+
+.bolo-emoji {
+    font-size: 100px;
+    margin-top: 20px;
+    animation: pulsar 1.5s infinite;
+}
+
+.hidden { display: none; }
+
+.btn-jogar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
