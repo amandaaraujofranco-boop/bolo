@@ -1,62 +1,44 @@
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #ffe6f2; /* Tom de rosa claro */
+/* Estilos da Fase 1 */
+.hud {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    color: #d63384;
 }
 
-.tela {
-    text-align: center;
+#campo-batalha {
+    position: relative;
     width: 100%;
+    height: 70vh;
+    cursor: crosshair;
 }
 
-.titulo-rosa {
-    color: #ff66b2;
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.container-barra {
-    width: 300px;
-    height: 20px;
-    background-color: #ddd;
-    border-radius: 10px;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-#barra-progresso {
-    width: 0%;
-    height: 100%;
-    background-color: #ff66b2;
-    /* Animação de 5 segundos linear */
-    transition: width 5s linear;
-}
-
-.bolo-emoji {
-    font-size: 100px;
-    margin-top: 20px;
-    animation: pulsar 1.5s infinite;
-}
-
-.hidden { display: none; }
-
-.btn-jogar {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ff66b2;
-    color: white;
-    border: none;
-    border-radius: 5px;
+.ingrediente {
+    position: absolute;
+    font-size: 40px;
     cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
 }
 
-@keyframes pulsar {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+.ingrediente:hover {
+    transform: scale(1.2);
+}
+
+/* Ranking */
+#lista-ranking {
+    list-style: none;
+    padding: 0;
+    max-width: 200px;
+    margin: 20px auto;
+}
+
+#lista-ranking li {
+    background: white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ff66b2;
 }
