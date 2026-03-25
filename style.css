@@ -1,62 +1,59 @@
-body {
+body, html {
     margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: 'Arial', sans-serif;
-    background-color: #ffe6f2; /* Tom de rosa claro */
+    background-color: #ffe6f2; /* Fundo Rosa */
+}
+
+.screen {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    overflow: hidden;
-}
-
-.tela {
     text-align: center;
-    width: 100%;
 }
 
-.titulo-rosa {
+.hidden { display: none; }
+
+.title-pink {
     color: #ff66b2;
     font-size: 3rem;
     margin-bottom: 20px;
 }
 
-.container-barra {
+/* Barra de Carregamento */
+.loader-container {
     width: 300px;
     height: 20px;
-    background-color: #ddd;
+    background: #fff;
     border-radius: 10px;
-    margin: 0 auto;
+    border: 2px solid #ff66b2;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
-#barra-progresso {
+#progress-bar {
     width: 0%;
     height: 100%;
     background-color: #ff66b2;
-    /* Animação de 5 segundos linear */
-    transition: width 5s linear;
+    transition: width 0.1s linear;
 }
 
-.bolo-emoji {
-    font-size: 100px;
-    margin-top: 20px;
-    animation: pulsar 1.5s infinite;
+#big-cake {
+    width: 150px;
+    animation: bounce 1s infinite alternate;
 }
 
-.hidden { display: none; }
-
-.btn-jogar {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ff66b2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
 }
 
-@keyframes pulsar {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
