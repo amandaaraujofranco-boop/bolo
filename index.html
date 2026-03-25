@@ -3,19 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vindo com Bolo</title>
-    <style>
-        body {
-            background-color: #ffe4e1; /* Rosa claro */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            overflow: hidden; /* Para garantir que o loading e o bolo fiquem na tela */
-        }
+    <title>Página Rosa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        .welcome-text {
-            color: #ff14
+    <h1 id="titulo">Bem-vindo</h1>
+
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <button id="btn-jogar">JOGAR</button>
+
+    <div id="bolo">🎂</div>
+
+    <script>
+        const progressBar = document.getElementById('progress-bar');
+        const progressContainer = document.getElementById('progress-container');
+        const btnJogar = document.getElementById('btn-jogar');
+        const bolo = document.getElementById('bolo');
+
+        let progresso = 0;
+
+        // Simulação do carregamento
+        const intervalo = setInterval(() => {
+            progresso += 1;
+            progressBar.style.width = progresso + "%";
+
+            if (progresso >= 100) {
+                clearInterval(intervalo);
+                // Esconde a barra e mostra o botão
+                progressContainer.style.display = "none";
+                btnJogar.style.display = "block";
+            }
+        }, 40); // Ajuste o tempo para carregar mais rápido ou devagar
+
+        // Ação ao clicar no botão Jogar
+        btnJogar.addEventListener('click', () => {
+            btnJogar.style.display = "none";
+            bolo.style.display = "block";
+        });
