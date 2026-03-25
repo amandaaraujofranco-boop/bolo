@@ -1,59 +1,62 @@
-body, html {
+body {
     margin: 0;
-    padding: 0;
-    height: 100%;
     font-family: 'Arial', sans-serif;
-    background-color: #ffe6f2; /* Fundo Rosa */
-}
-
-.screen {
+    background-color: #ffe6f2; /* Tom de rosa claro */
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
-    text-align: center;
+    overflow: hidden;
 }
 
-.hidden { display: none; }
+.tela {
+    text-align: center;
+    width: 100%;
+}
 
-.title-pink {
+.titulo-rosa {
     color: #ff66b2;
     font-size: 3rem;
     margin-bottom: 20px;
 }
 
-/* Barra de Carregamento */
-.loader-container {
+.container-barra {
     width: 300px;
     height: 20px;
-    background: #fff;
+    background-color: #ddd;
     border-radius: 10px;
-    border: 2px solid #ff66b2;
+    margin: 0 auto;
     overflow: hidden;
-    margin-bottom: 20px;
 }
 
-#progress-bar {
+#barra-progresso {
     width: 0%;
     height: 100%;
     background-color: #ff66b2;
-    transition: width 0.1s linear;
+    /* Animação de 5 segundos linear */
+    transition: width 5s linear;
 }
 
-#big-cake {
-    width: 150px;
-    animation: bounce 1s infinite alternate;
+.bolo-emoji {
+    font-size: 100px;
+    margin-top: 20px;
+    animation: pulsar 1.5s infinite;
 }
 
-@keyframes bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-10px); }
+.hidden { display: none; }
+
+.btn-jogar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.login-box {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
