@@ -8,39 +8,16 @@
 </head>
 <body>
 
-    <h1 id="titulo">Bem-vindo</h1>
+    <h1>Bem-vindo</h1>
 
     <div id="progress-container">
         <div id="progress-bar"></div>
     </div>
 
-    <button id="btn-jogar">JOGAR</button>
+    <input type="checkbox" id="trigger-jogo" class="hidden-check">
+    <label for="trigger-jogo" id="btn-jogar">JOGAR</label>
 
     <div id="bolo">🎂</div>
 
-    <script>
-        const progressBar = document.getElementById('progress-bar');
-        const progressContainer = document.getElementById('progress-container');
-        const btnJogar = document.getElementById('btn-jogar');
-        const bolo = document.getElementById('bolo');
-
-        let progresso = 0;
-
-        // Simulação do carregamento
-        const intervalo = setInterval(() => {
-            progresso += 1;
-            progressBar.style.width = progresso + "%";
-
-            if (progresso >= 100) {
-                clearInterval(intervalo);
-                // Esconde a barra e mostra o botão
-                progressContainer.style.display = "none";
-                btnJogar.style.display = "block";
-            }
-        }, 40); // Ajuste o tempo para carregar mais rápido ou devagar
-
-        // Ação ao clicar no botão Jogar
-        btnJogar.addEventListener('click', () => {
-            btnJogar.style.display = "none";
-            bolo.style.display = "block";
-        });
+</body>
+</html>
