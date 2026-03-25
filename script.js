@@ -1,25 +1,39 @@
-// Inicia o carregamento assim que a página abre
 window.onload = function() {
-    const barra = document.getElementById('barra-progresso');
-    const areaBolo = document.getElementById('area-bolo');
+    const progressBar = document.getElementById('progress-bar');
+    const bigCake = document.getElementById('big-cake');
+    const splashScreen = document.getElementById('splash-screen');
+    const loginScreen = document.getElementById('login-screen');
+    
+    let width = 0;
+    const duration = 5000; // 5 segundos
+    const intervalTime = 50; // Atualiza a cada 50ms
+    const step = (intervalTime / duration) * 100;
 
-    // Força o início da transição da barra
-    setTimeout(() => {
-        barra.style.width = '100%';
-    }, 100);
+    const interval = setInterval(() => {
+        width += step;
+        progressBar.style.width = width + '%';
 
-    // Após 5 segundos (5000ms), mostra o bolo
-    setTimeout(() => {
-        areaBolo.classList.remove('hidden');
-    }, 5100);
+        if (width >= 100) {
+            clearInterval(interval);
+            // Mostrar o bolo
+            bigCake.style.display = 'block';
+            
+            // Esperar 1.5s com o bolo na tela e ir para o login
+            setTimeout(() => {
+                splashScreen.classList.add('hidden');
+                loginScreen.classList.remove('hidden');
+            }, 1500);
+        }
+    }, intervalTime);
 };
 
-function irParaLogin() {
-    document.getElementById('tela-inicial').classList.add('hidden');
-    document.getElementById('tela-login').classList.remove('hidden');
-}
-
-function iniciarFase() {
-    alert("Prepare os ingredientes! O jogo vai começar...");
-    // Aqui entraremos na lógica das fases e pontos
+function startGame() {
+    const name = document.getElementById('username').value;
+    if (name.trim() !== "") {
+        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        console.log("Iniciando jogo para: " + name);
+    } else {
+        alert("Por favor, digite seu nome!");
+    }
 }
